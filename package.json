@@ -1,0 +1,19 @@
+{
+  "name": "cos-bridge",
+  "version": "0.1.0",
+  "description": "CLI for local agents to control Chat On Steroids workers",
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "bin": { "cos-bridge": "bin/cos-bridge.mjs" },
+  "files": ["bin", "skills", "LICENSE", "README.md"],
+  "scripts": {
+    "test": "vitest run",
+    "check": "node --check bin/cos-bridge.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abdulsalamgs/cos-bridge.git"
+  },
+  "devDependencies": { "vitest": "5.0.2" }
+}
