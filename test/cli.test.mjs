@@ -14,7 +14,7 @@ let routes;
 let answer;
 
 beforeEach(async () => {
-  directory = await makeTempDir('cos-t3-');
+  directory = await makeTempDir('cos-bridge-');
   await fs.mkdir(path.join(directory, 'control-api'));
   answer = (_req, res) => { res.writeHead(404); res.end('{}'); };
   routes = ['/v1/workers/{ownerId}', '/v1/sessions/{id}/events/stream'];
