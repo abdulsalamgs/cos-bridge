@@ -1,6 +1,6 @@
 ---
 name: cos-bridge
-description: Orchestrate Chat On Steroids broker workers directly from T3 Code or another local agent; delegate, message, collect reports and check progress.
+description: Control Chat On Steroids broker workers from any local agent; delegate tasks, send messages, collect reports and check progress.
 ---
 
 Run the installed CLI with Node 22 or later:
@@ -8,6 +8,7 @@ Run the installed CLI with Node 22 or later:
 `cos-bridge <command> [--request-file request.json] [--data-dir <CoS userData>]`
 
 From this package's checkout, use `node bin/cos-bridge.mjs` instead of `cos-bridge`.
+Any agent with local shell access can use it, regardless of its model provider.
 
 Use UTF-8 JSON requests. CoS needs Local control API, Allow actions, workers and its normal
 ChatGPT connection enabled. Direct control requires the advertised v1 worker routes; an
@@ -26,8 +27,8 @@ older build returns `worker_broker_unavailable`. Output is JSON lines; failures 
 | `send` | `id, text, sessionId?, projectId?, interrupt?`; ordinary ChatGPT chats. |
 | `inputs` | `id?`; prefer an exact ordinary message's delivery receipt. |
 
-Persist one lowercase UUID `ownerId` per T3 task and retain returned run/worker ids; worker
-names are scoped to their run. T3 is the orchestrator; workers report through CoS. Use saved
+Persist one lowercase UUID `ownerId` per orchestration task and retain returned run/worker ids; worker
+names are scoped to their run. The calling agent orchestrates; workers report through CoS. Use saved
 worker model and effort defaults. Tasks, context and messages allow up to 4,000 characters.
 Spawn 1 to 8 workers at once, or send 1 to 16 messages per batch. Give workers the repo,
 scope and validation in context. Select a
